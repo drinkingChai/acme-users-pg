@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/public.css">
+  </head>
+  <body>
+
+    <header>
+      Acme Users PG-13!
+    </header>
+
+    <nav>
+      <a href="/"><li>Home</li></a>
+      <a href="/users"><li>Users</li></a>
+      <a href="/users/managers"><li>Managers</li></a>
+    </nav>
+
+
+    <div class="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

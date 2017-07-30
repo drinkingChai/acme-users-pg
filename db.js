@@ -30,33 +30,36 @@ function seed(cb) {
 function getUsers(managersOnly, cb) {
   var sql = 'SELECT * FROM users' + (managersOnly ? ' WHERE is_manager' : '');
   query(sql, null, function(err, results) {
-    if (err) cb(err);
-    cb(results.rows);
+    if (err) return cb(err);
+    cb(null, results.rows);
   });
 }
 
 function getUser(id, cb) {
   query('SELECT * FROM users WHERE id=$1', [id], function(err, results) {
-    if (err) cb(err);
-    cb(results.rows[0]);
+    if (err) return cb(err);
+    cb(null, results.rows[0]);
   })
 }
 
 function createUser(user, cb) {
   query('INSERT INTO users (name, is_manager) VALUES ($1, $2)', [user.name, user.isManager], function(err) {
-    if (err) cb(err);
+    if (err) return cb(err);
+    cb();
   });
 }
 
 function updateUser(user, cb) {
   query('UPDATE users SET name=$1, is_manager=$2 WHERE name=$1', [user.name, user.isManager], function(err) {
-    if (err) cb(err);
+    if (err) return cb(err);
+    cb();
   });
 }
 
 function deleteUser(id, cb) {
   query('DELETE FROM users WHERE id=$1', [id], function(err) {
-    if (err) cb(err);
+    if (err) return cb(err);
+    cb();
   })
 }
 
