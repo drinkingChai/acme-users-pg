@@ -1,9 +1,14 @@
 const router = require('express').Router();
 const db = require('../db');
 
+function sortUser(a, b) {
+  return !a.is_manager;
+}
+
 router.get('/', function(req, res, next) {
   db.getUsers()
     .then(function(allUsers) {
+      allUsers.sort(sortUser);
       res.render('users', { allUsers });
     }, function(err) {
       next(err);

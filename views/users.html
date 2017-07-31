@@ -2,21 +2,22 @@
 
 {% block content %}
 
-  {% for user in allUsers %}
-    <li>
-      {{ user.name }}
-      {{ user.is_manager }}
-      {% if user.is_manager %}
-        MANAGER!!
-      {% else %}
-        <form class="" action="/users/{{user.id}}?_method=PUT" method="POST">
-          <input type="submit" name="promote" value="Make me maanger!!">
-        </form>
-        <form class="" action="/users/{{user.id}}?_method=DELETE" method="POST">
-          <input type="submit" name="" value="Noooo">
-        </form>
-      {% endif %}
-    </li>
-  {% endfor %}
-
+  <div class="users">
+    {% for user in allUsers %}
+      <li>
+        <span class="user">{{ user.name }}</span>
+        {% if user.is_manager %}
+          <span class="tag">manager</span>
+        {% else %}
+          <form class="" action="/users/{{user.id}}?_method=PUT" method="POST">
+            <input class="pg-btn-default blue" type="submit" name="promote" value="Make me manager!!">
+          </form>
+          <form class="" action="/users/{{user.id}}?_method=DELETE" method="POST">
+            <input class="pg-btn-default red" type="submit" name="" value="Noooo">
+          </form>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </div>
+  
 {% endblock %}

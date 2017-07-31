@@ -39,7 +39,7 @@ function getUser(id) {
 }
 
 function createUser(user) {
-  return queryPromise('INSERT INTO users (name, is_manager) VALUES ($1, $2)', [user.name, user.isManager]);
+  return queryPromise('INSERT INTO users (name, is_manager) VALUES ($1, $2)', [user.name.trim() != '' ? user.name : null, user.isManager]);
 }
 
 function updateUser(user) {
@@ -51,7 +51,9 @@ function deleteUser(id) {
 }
 
 
-client.connect();
+client.connect(function(err) {
+  if (err) throw err;
+});
 
 module.exports = {
   sync,

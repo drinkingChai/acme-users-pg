@@ -2,14 +2,15 @@
 
 {% block content %}
 
-  {% for user in allUsers %}
-    <li>
-      {{ user.name }}
-      {{ user.is_manager }}
-      <form class="" action="/users/{{user.id}}?_method=PUT" method="POST">
-        <input type="submit" name="" value="Remove Manger >:(">
-      </form>
-    </li>
-  {% endfor %}
+  <div class="users">
+    {% for user in allUsers %}
+      <li>
+        <span class="user">{{ user.name }}</span>
+        <form class="" action="/users/{{user.id}}?_method=PUT" method="POST">
+          <input class="pg-btn-default red" type="submit" name="" value="Remove Manger >:(">
+        </form>
+      </li>
+    {% endfor %}
+  </div>
 
 {% endblock %}
