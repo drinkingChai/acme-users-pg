@@ -19,10 +19,13 @@ app.use(bodyParser.urlencoded({ extended: false })); // extende
 app.use(methodOverride('_method'));
 
 app.get('/', function(req, res, next) {
-  db.getUsers(false, function(err, allUsers) {
-    if (err) return next(err);
-    res.render('index');
-  })
+  db.getUsers()
+    .then(function() {
+      res.render('index');
+    })
+    .catch(function(err) {
+      next(err);
+    });
 });
 app.use('/users', users);
 app.use(function(err, req, res, next) {
