@@ -3,19 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Acme|PT+Serif:700" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/reset.css">
-    <link rel="stylesheet" href="/stylesheets/public.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
 
     <header>
-      Acme Users PG-13!
+      <h1>Acme Users PG-13!</h1>
     </header>
 
     <nav>
-      <a href="/"><li>Home</li></a>
-      <a href="/users"><li>Users</li></a>
-      <a href="/users/managers"><li>Managers</li></a>
+      <a href="/" {% if page == '' %} class="active pg-btn-default" {% else %} class="pg-btn-default" {% endif %}><li>Home</li></a>
+      <a href="/users" {% if page == 'users' %} class="active pg-btn-default" {% else %} class="pg-btn-default" {% endif %}><li>Users</li></a>
+      <a href="/users/managers" {% if page == 'managers' %} class="active pg-btn-default" {% else %} class="pg-btn-default" {% endif %}><li>Managers</li></a>
     </nav>
 
 

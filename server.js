@@ -18,6 +18,11 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false })); // extende
 app.use(methodOverride('_method'));
 
+app.use(function(req, res, next) {
+  res.locals.page = req.url.split('/').slice(-1);
+  next();
+})
+
 app.get('/', function(req, res, next) {
   db.getUsers()
     .then(function() {

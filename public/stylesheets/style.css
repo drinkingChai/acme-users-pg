@@ -1,0 +1,68 @@
+html { font-size: 16px; }
+body {
+  font-size: 100%;
+  font-family: sans-serif;
+}
+h1 { font-size: 3em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.2em; }
+
+h1, h2, h3, h4 {
+  font-family: 'Acme', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #FFDC00;
+  color: #111111;
+  padding: 4.5%;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+nav li {
+  list-style-type: none;
+}
+
+.active {
+  background-color: #7FDBFF;
+}
+
+.pg-btn-default {
+  margin-right: 5px;
+  padding: 1em;
+  color: #000;
+  text-decoration: none;
+  border: solid 1px #DDDDDD;
+}
+
+.content {
+  padding: 5%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-user {
+  display: flex;
+  flex-direction: column;
+}
+.new-user * {
+  margin-bottom: 10px;
+}
+
+
+input[type=text] {
+  font-size: 1em;
+  padding: 0.5em;
+}
+input[type=submit] {
+  background-color: inherit;
+  font-size: 1em;
+  margin: 0;
+}
